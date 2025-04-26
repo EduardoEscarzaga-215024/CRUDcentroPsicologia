@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Citas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">Centro de Psicología</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Citas Agendadas</h2>
+
+        <form method="GET" class="mb-4 text-center">
+            <div class="input-group w-50 mx-auto">
+                <input type="text" name="buscar" class="form-control" placeholder="Buscar por nombre del paciente..." value="{{ query }}">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </form>
+        
+        {% if citas %}
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="table-primary text-center">
+                        <tr>
+                            <th>Nombre del Paciente</th>
+                            <th>Teléfono</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Motivo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cita in citas %}
+                            <tr>
+                                <td>{{ cita.nombre_paciente }}</td>
+                                <td>{{ cita.telefono_paciente }}</td>
+                                <td>{{ cita.fecha }}</td>
+                                <td>{{ cita.hora }}</td>
+                                <td>{{ cita.motivo|default:"(Sin motivo especificado)" }}</td>
+                                <td class="text-center">
+                                    <a href = "{% url 'editar_cita' cita.id %}" class="btn btn-warning btn-sm">Editar cita</a>
+                                </td>
+                                <td class = "text-center">
+                                    <a href = "{% url 'eliminar_cita' cita.id %}" class="btn btn-danger btn-sm">Eliminar cita</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p class="text-center text-muted">No hay citas registradas.</p>
+        {% endif %}
+
+        <div class="text-center mt-4">
+            <a href="{% url 'agendar_cita' %}" class="btn btn-primary">Agendar nueva cita</a>
+        </div>
+    </div>
+</body>
+</html>

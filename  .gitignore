@@ -1,0 +1,21 @@
+# Entornos virtuales
+venv/
+env/
+
+# Base de datos SQLite
+*.sqlite3
+
+# Archivos de cache de Python
+__pycache__/
+*.py[cod]
+
+# Archivos de configuraciones personales
+.vscode/
+.idea/
+
+# Archivos de entorno
+*.env
+
+# Archivos de migraciones (opcional ignorar)
+# */migrations/*.pyc
+# */migrations/__pycache__/
