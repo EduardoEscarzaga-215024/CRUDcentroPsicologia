@@ -13,7 +13,7 @@
   
   <hr>
 
-  <h2>Requisitos del sistema</h2>
+  <h2>Requisitos funcionales del sistema</h2>
   <ul>
     <li><strong>1. Registro de recepcionistas</strong><br>El sistema debe permitir que recepcionistas nuevas se registren con nombre, apellido, email, teléfono y contraseña.</li>
     <li><strong>2. Inicio de sesion</strong><br>El sistema debe permitir que una recepcionista pueda iniciar sesión utilizando su correo electrónico y contraseña.</li>
@@ -25,6 +25,17 @@
     <li><strong>8. Eliminar citas</strong><br>El sistema debe permitir eliminar citas registradas.</li>
     <li><strong>9. Proteccion de vistas</strong><br>El sistema debe restringir el acceso a la gestión de citas solo a usuarios autenticados.</li>
     <li><strong>10. Mensajes de confirmacion y error</strong><br>El sistema debe mostrar mensajes de éxito o error en acciones como login y logout</li>
+  </ul>
+
+  <hr>
+
+  <h2>Requisitos no funcionales</h2>
+  <ul>
+  <li><strong>1. Persistencia de datos</strong>La informacion de las recepcionistas debe guardarse en la base de datos<br></li>
+  <li><strong>2. Tiempo de respuesta</strong><br>El sistema debe procesar solicitudes de los usuarios en menos de 3 segundos</li>
+  <li><strong>3. Autenticacion y autorizacion</strong><br>Solo usuarios autenticados pueden registrar, editar, ver o eliminar citas.</li>
+  <li><strong>4. Modularidad del codigo</strong><br>El sistema debe estar organizado en diferentes aplicaciones Django (Inicio, Usuarios, Citas) para mantener la modularidad.</li>
+  <li><strong>5. Seguridad de contraseñas</strong><br>Las contraseñas deben almacenarse en la base de datos de forma cifrada.</li>
   </ul>
 
   <hr>
